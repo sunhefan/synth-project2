@@ -43,15 +43,15 @@ let notecounter = 10;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  
+
   fft = new p5.FFT(0.85, bands);
   fft2 = new p5.FFT(0.85, bands);
   // create audion in
   mic = new p5.AudioIn();
 
- 
 
- 
+
+
   //// start the Audio Input
   mic.start();
   synth = new p5.PolySynth();
@@ -75,7 +75,7 @@ function setup() {
       terrain2[y][x] = 0;
     }
   }
-  
+
 }
 
 function draw() {
@@ -84,7 +84,7 @@ function draw() {
   translate(-width/2,height/2,50);
   var c = color(frameCount % 300, 100, 200);
   stroke(c);
-  
+
   // translate(-width / 2, 30,0);
   //  rotateX(radians(-60));
  zoom = map(0,mouseY, 0, height, 70);
@@ -103,8 +103,8 @@ function draw() {
     }
     vertex(0, ((height / lines) * y + 70));
     endShape();
-    
-    
+
+
   }
 
 
@@ -113,7 +113,7 @@ function draw() {
     vertex(10, ((height / lines) * y + 70));
     vertex(10, ((height / lines) * y + 70));
     for (let x = 0; x < spectrum.length; x++) {
-       
+
       vertex(map(x, 0, bands / zoom, width / 2, width), (map(terrain[y][x], 0, 255, 0, -peak)) + ((height / lines) * y + 70));
     }
     vertex(width / 2, ((height / lines) * y + 70))
@@ -175,7 +175,7 @@ function chooseKeyNote() {
   let chordPicker2 = floor(random(keynotes.length));
   // console.log(chordPicker2);
   durationk = random(0.2, 1.0);
- 
+
   for (let i = 0; i < 3; i++) {
     synthkey.noteAttack(keynotes[chordPicker2][i], i * 0.2, 0, durationk);
   }
