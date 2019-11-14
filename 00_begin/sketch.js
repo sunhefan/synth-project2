@@ -5,7 +5,7 @@
 
 var fft;
 let fft2;
-var mic;
+// var mic;
 var bands = 1024; // resolution of the FFT
 var spectrum, spectrum2;
 var terrain = [];
@@ -50,13 +50,13 @@ function setup() {
   fft = new p5.FFT(0.85, bands);
   fft2 = new p5.FFT(0.85, bands);
   // create audion in
-  mic = new p5.AudioIn();
+  // mic = new p5.AudioIn();
 
 
 
 
   //// start the Audio Input
-  mic.start();
+  // mic.start();
   synth = new p5.PolySynth();
   synthkey = new p5.PolySynth();
    // synth.AudioVoice = 16;
